@@ -1,0 +1,145 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
+using UnityEngine;
+
+public class DrawWithMouse : MonoBehaviour
+{
+    private LineRenderer line;
+    private Vector3 previousPosition;
+    public float minDistance = 0.1f;
+    public int minPoints = 3;
+    [SerializeField]
+    public static List<PlayerCore> selectedPlayers;
+    private void Awake() {
+        line = GetComponent<LineRenderer>();
+        previousPosition = transform.position;
+        selectedPlayers = new List<PlayerCore>();
+    }
+
+    private void Update() {
+        if (Input.GetMouseButton(1))
+        {
+            DeselectPlayers();
+            DrawSelector();
+        }
+        else if (Input.GetMouseButtonUp(1))
+        {
+            SelectRegion();
+        }
+        else if (Input.GetMouseButtonDown(0))
+        {
+            CommandMove();
+        }
+        else {
+            ResetSelector();
+        }
+    }
+
+    private void CommandMove()
+    {
+        // Move the selected players to the mouse position
+        foreach (PlayerCore player in selectedPlayers)
+        {
+            player.SetTargetPosition(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        }
+    }
+    public static void CommandChop(TreeCore treeCore)
+    {
+        // 
+        // Loop through all selected players
+        foreach (PlayerCore player in selectedPlayers)
+        {
+            player.CommandChop(treeCore);
+        }
+    }
+    private void DeselectPlayers()
+    {
+        // Deselct all players
+        foreach (PlayerCore player in selectedPlayers)
+        {
+            player.Deselect();
+            player.GetComponent<SpriteRenderer>().color = Color.white;
+        }
+        // Clear the selected players array
+        selectedPlayers.Clear();
+    }
+
+    private void ResetSelector()
+    {
+        // Connect the end of the line to the start of the line
+        line.positionCount++;
+        line.SetPosition(line.positionCount - 1, line.GetPosition(0));
+
+
+        // reset the previous position when the mouse is released
+        previousPosition = transform.position;
+        line.positionCount = 0;
+    }
+
+    private void DrawSelector()
+    {
+        Vector3 currentPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        currentPosition.z = 0;
+
+        // Check if the mouse has moved enough for a new point
+        if (Vector3.Distance(currentPosition, previousPosition) > minDistance)
+        {
+            // Add a new point to the line
+            line.positionCount++;
+            line.SetPosition(line.positionCount - 1, currentPosition);
+            previousPosition = currentPosition;
+        }
+    }
+
+    private void SelectRegion()
+    {
+        PolygonCollider2D poly = CreatePolyCollider();
+        if (poly == null) return;
+        SelectObjects(poly);
+    }
+
+    private void SelectObjects(PolygonCollider2D poly)
+    {
+        // Loop through all objects with the PlayerCore script
+        foreach (PlayerCore player in FindObjectsOfType<PlayerCore>())
+        {
+            // Check if the player is inside the selector
+            if (poly.OverlapPoint(player.transform.position))
+            {
+                // Select the player
+                player.Select();
+                // Draw an outline around the player
+                player.GetComponent<SpriteRenderer>().color = Color.red;
+                // Store the player in the selected players array
+                selectedPlayers.Add(player);
+            }
+            else
+            {
+                // Deselect the player
+                player.Deselect();
+            }
+        }
+    }
+
+    private PolygonCollider2D CreatePolyCollider()
+    {
+        // Create a polygon collider with the line points if there are enough points
+        if (line.positionCount < minPoints) return null;
+        PolygonCollider2D polygonCollider = gameObject.AddComponent<PolygonCollider2D>();
+        // Set the collider to a trigger so it doesn't collide with other objects
+        polygonCollider.isTrigger = true;
+        // Get a vector2d array of the line points
+        Vector2[] linePoints = new Vector2[line.positionCount];
+        for (int i = 0; i < line.positionCount; i++)
+        {
+            linePoints[i] = line.GetPosition(i).ConvertTo<Vector2>();
+        }
+        // Set the collider points to the line points
+        polygonCollider.points = linePoints;
+
+        // return the polygon collider created
+        return polygonCollider;
+    }
+}
