@@ -8,7 +8,7 @@ public class TabMenuTowers : MonoBehaviour
     /// ScriptableObject references    
     /// </summary>
     public TowerScriptableObject cannonScriptableObject;
-    public TowerScriptableObject laserScriptableObject;
+    public TowerScriptableObject summoningTowerScriptableObject;
 
     // current scriptable object
     private TowerScriptableObject currentScriptableObject;
@@ -48,8 +48,9 @@ public class TabMenuTowers : MonoBehaviour
     }
     private void SetUpMapping()
     {
-        towerNameToScriptableObject.Add("Cannon", cannonScriptableObject);
-        towerNameToScriptableObject.Add("Laser", laserScriptableObject);
+        // Change this to file later on
+        towerNameToScriptableObject.Add("Tower", cannonScriptableObject);
+        towerNameToScriptableObject.Add("Summoning_Tower", summoningTowerScriptableObject);
     }
     private void InitializeTile()
     {
@@ -57,7 +58,7 @@ public class TabMenuTowers : MonoBehaviour
         tileObject = new GameObject();
         tileObject.AddComponent<SpriteRenderer>();
         // Create a sprite the same size as a tilemap cell size
-        Sprite sprite = Sprite.Create(new Texture2D(32, 32), new Rect(0, 0, 32, 32), new Vector2(0.5f, 0.5f), 32);
+        Sprite sprite = Sprite.Create(new Texture2D(48, 48), new Rect(0, 0, 48, 48), new Vector2(0.5f, 0.5f), 16);
         tileObject.GetComponent<SpriteRenderer>().sprite = sprite;
         tileObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f); // Make the tile transparent white
         tileObject.GetComponent<SpriteRenderer>().enabled = false; // Hide the tile sprite until we call TowerPrePlace
