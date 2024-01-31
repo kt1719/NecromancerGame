@@ -6,7 +6,7 @@ public class UnitCore : MonoBehaviour
 {
     public bool selected = false;
     UnitMovement unitMovement;
-    UnitFarming unitFarming;
+    UnitCombat unitCombat;
     // Start is called before the first frame update
     public UnitScriptableObject unitScriptableObjectReference;
     private UnitScriptableObject unitScriptableObject;
@@ -14,13 +14,13 @@ public class UnitCore : MonoBehaviour
     void Awake()
     {
         unitMovement = GetComponent<UnitMovement>();
-        unitFarming = GetComponent<UnitFarming>();
+        unitCombat = GetComponent<UnitCombat>();
         // Set scriptable object reference to all components
         // Create a new instance of the scriptable object
         unitScriptableObject = Instantiate(unitScriptableObjectReference);
         // Copy the values from the scriptable object to the components
         unitMovement.SetScriptableObject(unitScriptableObject);
-        unitFarming.SetScriptableObject(unitScriptableObject);
+        unitCombat.SetScriptableObject(unitScriptableObject);
     }
 
     private void FixedUpdate() {
@@ -43,13 +43,14 @@ public class UnitCore : MonoBehaviour
     public void SetTargetPosition(Vector3 position) {
         attacking = false;
         unitMovement.SetTargetPosition(position);
-        unitFarming.CancelChop();
+        unitCombat.CancelUnitsAttack();
     }
 
-    public void CommandChop(TreeCore treeCore) {
+    public void CommandUnitsAttack(EnemyCore enemyCore) {
+        if (attacking) return;
         attacking = true;
-        unitMovement.SetTargetPosition(treeCore.gameObject.transform.position);
-        unitFarming.ChopTree(treeCore);
+        unitMovement.SetTargetPosition(enemyCore.gameObject.transform.position);
+        unitCombat.AttackEnemy(enemyCore);
     }
 
     private void ShowPointer()

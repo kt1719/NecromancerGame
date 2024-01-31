@@ -2,43 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitFarming : MonoBehaviour
+public class UnitCombat : MonoBehaviour
 {
-    private TreeCore treeCore;
+    private EnemyCore enemyCore;
     private UnitScriptableObject unitScriptableObject;
 
-    public void ChopTree(TreeCore treeCore)
+    public void AttackEnemy(EnemyCore enemyCore)
     {
-        this.treeCore = treeCore;
-        // Call DamageTree function every 1 second
-        InvokeRepeating("DamageTree", 0, 1/unitScriptableObject.attackSpeed);
+        this.enemyCore = enemyCore;
+        // Call DamageEnemy function every 1 second
+        InvokeRepeating("DamageEnemy", 0, 1/unitScriptableObject.attackSpeed);
     }
 
     public void SetScriptableObject(UnitScriptableObject unitScriptableObject) {
         this.unitScriptableObject = unitScriptableObject;
     }
 
-    private void DamageTree()
+    private void DamageEnemy()
     {
-        if (treeCore == null)
+        if (enemyCore == null)
         {
             return;
         }
-        if (Vector3.Distance(transform.position, treeCore.transform.position) > unitScriptableObject.range)
+        if (Vector3.Distance(transform.position, enemyCore.transform.position) > unitScriptableObject.range)
         {
             return;
         }
-        if (treeCore.TakeDamage(unitScriptableObject.damage))
+        if (enemyCore.TakeDamage(unitScriptableObject.damage))
         {
-            // Tree is destroyed
-            treeCore = null;
-            // Stop calling DamageTree function
-            CancelInvoke("DamageTree");
+            // Enemy is destroyed
+            enemyCore = null;
+            // Stop calling DamageEnemy function
+            CancelInvoke("DamageEnemy");
         }
     }
 
-    public void CancelChop()
+    public void CancelUnitsAttack()
     {
-        treeCore = null;
+        enemyCore = null;
     }
 }

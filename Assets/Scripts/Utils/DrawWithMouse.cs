@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -36,7 +35,7 @@ public class DrawWithMouse : MonoBehaviour
             if (targetObject != null)
             {
                 // Will need to check in the future for the type of object
-                CommandChop(targetObject.GetComponent<TreeCore>());
+                CommandUnitsAttack(targetObject.GetComponent<EnemyCore>());
             }
             else{
                 CommandMove();
@@ -55,12 +54,12 @@ public class DrawWithMouse : MonoBehaviour
             player.SetTargetPosition(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         }
     }
-    public static void CommandChop(TreeCore treeCore)
+    public static void CommandUnitsAttack(EnemyCore enemyCore)
     {
         // Loop through all selected players
         foreach (UnitCore player in selectedPlayers)
         {
-            player.CommandChop(treeCore);
+            player.CommandUnitsAttack(enemyCore);
         }
     }
     private void DeselectPlayers()
@@ -104,6 +103,28 @@ public class DrawWithMouse : MonoBehaviour
 
     private void SelectRegion()
     {
+        PolygonCollider2D CreatePolyCollider()
+        {
+            // Create a polygon collider with the line points if there are enough points
+            if (line.positionCount < minPoints) return null;
+            PolygonCollider2D polygonCollider = gameObject.AddComponent<PolygonCollider2D>();
+            // Set the collider to a trigger so it doesn't collide with other objects
+            polygonCollider.isTrigger = true;
+            // Get a vector2d array of the line points
+            Vector2[] linePoints = new Vector2[line.positionCount];
+            for (int i = 0; i < line.positionCount; i++)
+            {
+                linePoints[i] = line.GetPosition(i).ConvertTo<Vector2>();
+            }
+            // Apply the Monotone Chain Algorithm to the line points so that we have a convex shape
+            linePoints = Algorithms.GetConvexHull(linePoints.ConvertTo<List<Vector2>>());
+            // Set the collider points to the line points
+            polygonCollider.points = linePoints;
+
+            // return the polygon collider created
+            return polygonCollider;
+        }
+
         PolygonCollider2D poly = CreatePolyCollider();
         if (poly == null) return;
         SelectObjects(poly);
@@ -130,25 +151,5 @@ public class DrawWithMouse : MonoBehaviour
                 player.Deselect();
             }
         }
-    }
-
-    private PolygonCollider2D CreatePolyCollider()
-    {
-        // Create a polygon collider with the line points if there are enough points
-        if (line.positionCount < minPoints) return null;
-        PolygonCollider2D polygonCollider = gameObject.AddComponent<PolygonCollider2D>();
-        // Set the collider to a trigger so it doesn't collide with other objects
-        polygonCollider.isTrigger = true;
-        // Get a vector2d array of the line points
-        Vector2[] linePoints = new Vector2[line.positionCount];
-        for (int i = 0; i < line.positionCount; i++)
-        {
-            linePoints[i] = line.GetPosition(i).ConvertTo<Vector2>();
-        }
-        // Set the collider points to the line points
-        polygonCollider.points = linePoints;
-
-        // return the polygon collider created
-        return polygonCollider;
     }
 }

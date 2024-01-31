@@ -23,15 +23,4 @@ public class UnitScriptableObject : ScriptableObject
             pointerSprite = (Sprite)AssetDatabase.LoadAssetAtPath<Sprite>("Assets/PixelArt/UI/placeholder_pointer.png").ConvertTo(typeof(Sprite));
         }
     }
-
-    public void Copy(UnitScriptableObject unitScriptableObject) {
-        unitName = unitScriptableObject.unitName;
-        range = unitScriptableObject.range;
-        damage = unitScriptableObject.damage;
-        attackSpeed = unitScriptableObject.attackSpeed;
-        health = unitScriptableObject.health;
-        movementSpeed = unitScriptableObject.movementSpeed;
-        pointerAbovePlayer = unitScriptableObject.pointerAbovePlayer;
-        pointerSprite = unitScriptableObject.pointerSprite;
-    }
 }

@@ -68,6 +68,13 @@ public class TabMenuTowers : MonoBehaviour
         towerObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
         // Make sure tile is always behind tower
         tileObject.GetComponent<SpriteRenderer>().sortingOrder = towerObject.GetComponent<SpriteRenderer>().sortingOrder - 1;
+        // Set parent of towerObject to be the tileObject
+        towerObject.transform.parent = this.transform;
+        tileObject.transform.parent = this.transform;
+        towerObject.GetComponent<SpriteRenderer>().enabled = false; // Hide the tower sprite until we call TowerPrePlace
+        // Change name of tileObject
+        tileObject.name = "TilePrePlace";
+        towerObject.name = "TowerPrePlace";
     }
     // Function called when we want to place down a tower
     public void TowerPrePlace(string towerString) {

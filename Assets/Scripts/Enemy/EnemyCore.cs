@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TreeCore : MonoBehaviour
+public class EnemyCore : MonoBehaviour
 {
     CapsuleCollider2D capsuleCollider2D;
     SpriteRenderer spriteRenderer;
-    public int health = 100;
+    public EnemyScriptableObject enemyScriptableObjectReference;
+    private EnemyScriptableObject enemyScriptableObject;
     private bool selected = false;
     // Start is called before the first frame update
     void Awake() 
     {
         capsuleCollider2D = GetComponent<CapsuleCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        // Create a new instance of the scriptable object
+        enemyScriptableObject = Instantiate(enemyScriptableObjectReference);
     }
 
     // Update is called once per frame
@@ -42,17 +45,17 @@ public class TreeCore : MonoBehaviour
 
     public bool TakeDamage(int damage)
     {
-        health -= damage;
+        enemyScriptableObject.health -= damage;
         // Change the sprite colour to red for a short time
         spriteRenderer.color = Color.red;
         Invoke("ResetColor", 0.2f);
-        if (health <= 0)
+        if (enemyScriptableObject.health <= 0)
         {
-            // Destroy the tree
+            // Destroy the enemy
             Destroy(gameObject);
-            return true; // Return true if the tree is destroyed
+            return true; // Return true if the enemy is destroyed
         }
-        return false; // Return false if the tree is not destroyed
+        return false; // Return false if the enemy is not destroyed
     }
 
     private void ResetColor()
