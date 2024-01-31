@@ -10,12 +10,15 @@ public class DrawWithMouse : MonoBehaviour
     private Vector3 previousPosition;
     public float minDistance = 0.1f;
     public int minPoints = 3;
+    public Texture2D defaultMousePointer;
     [SerializeField]
-    public static List<PlayerCore> selectedPlayers;
+    public static List<UnitCore> selectedPlayers;
+    public static GameObject targetObject;
     private void Awake() {
         line = GetComponent<LineRenderer>();
         previousPosition = transform.position;
-        selectedPlayers = new List<PlayerCore>();
+        selectedPlayers = new List<UnitCore>();
+        Cursor.SetCursor(defaultMousePointer, Vector2.zero, CursorMode.Auto);
     }
 
     private void Update() {
@@ -30,7 +33,14 @@ public class DrawWithMouse : MonoBehaviour
         }
         else if (Input.GetMouseButtonDown(0))
         {
-            CommandMove();
+            if (targetObject != null)
+            {
+                // Will need to check in the future for the type of object
+                CommandChop(targetObject.GetComponent<TreeCore>());
+            }
+            else{
+                CommandMove();
+            }
         }
         else {
             ResetSelector();
@@ -40,16 +50,15 @@ public class DrawWithMouse : MonoBehaviour
     private void CommandMove()
     {
         // Move the selected players to the mouse position
-        foreach (PlayerCore player in selectedPlayers)
+        foreach (UnitCore player in selectedPlayers)
         {
             player.SetTargetPosition(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         }
     }
     public static void CommandChop(TreeCore treeCore)
     {
-        // 
         // Loop through all selected players
-        foreach (PlayerCore player in selectedPlayers)
+        foreach (UnitCore player in selectedPlayers)
         {
             player.CommandChop(treeCore);
         }
@@ -57,7 +66,7 @@ public class DrawWithMouse : MonoBehaviour
     private void DeselectPlayers()
     {
         // Deselct all players
-        foreach (PlayerCore player in selectedPlayers)
+        foreach (UnitCore player in selectedPlayers)
         {
             player.Deselect();
             player.GetComponent<SpriteRenderer>().color = Color.white;
@@ -102,8 +111,8 @@ public class DrawWithMouse : MonoBehaviour
 
     private void SelectObjects(PolygonCollider2D poly)
     {
-        // Loop through all objects with the PlayerCore script
-        foreach (PlayerCore player in FindObjectsOfType<PlayerCore>())
+        // Loop through all objects with the UnitCore script
+        foreach (UnitCore player in FindObjectsOfType<UnitCore>())
         {
             // Check if the player is inside the selector
             if (poly.OverlapPoint(player.transform.position))
@@ -115,7 +124,7 @@ public class DrawWithMouse : MonoBehaviour
                 // Store the player in the selected players array
                 selectedPlayers.Add(player);
             }
-            else
+            else if (player.selected)
             {
                 // Deselect the player
                 player.Deselect();

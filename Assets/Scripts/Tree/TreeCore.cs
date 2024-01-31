@@ -7,6 +7,7 @@ public class TreeCore : MonoBehaviour
     CapsuleCollider2D capsuleCollider2D;
     SpriteRenderer spriteRenderer;
     public int health = 100;
+    private bool selected = false;
     // Start is called before the first frame update
     void Awake() 
     {
@@ -22,18 +23,20 @@ public class TreeCore : MonoBehaviour
         {
             // Change the sprite colour to red
             spriteRenderer.color = Color.green;
-
-            // If left mouse button is pressed
-            if (Input.GetMouseButtonDown(0))
-            {
-                // Chop down tree
-                DrawWithMouse.CommandChop(this);
-            }
+            DrawWithMouse.targetObject = this.gameObject;
+            selected = true;
         }
-        else if (!IsInvoking("ResetColor")) // Check we are not invoking the reset colour
-        {
-            // Change the sprite colour to white
-            spriteRenderer.color = Color.white;
+        else {
+            if (!IsInvoking("ResetColor")) // Check we are not invoking the reset colour
+            {
+                // Change the sprite colour to white
+                spriteRenderer.color = Color.white;
+            }
+            if (selected)
+            {
+                DrawWithMouse.targetObject = null;
+                selected = false;
+            }
         }
     }
 
