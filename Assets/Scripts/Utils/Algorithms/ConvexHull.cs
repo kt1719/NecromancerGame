@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Algorithms
 {
-        public static double cross(Vector2 O, Vector2 A, Vector2 B)
+    public static double cross(Vector2 O, Vector2 A, Vector2 B)
     {
         return (A.x - O.x) * (B.y - O.y) - (A.y - O.y) * (B.x - O.x);
     }

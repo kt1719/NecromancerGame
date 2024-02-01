@@ -6,6 +6,7 @@ public class UnitMovement : MonoBehaviour
 {
     Animator animator;
     Vector2 targetPosition = new Vector2(0, 0);
+    private float randomTolerance = 0.5f;
     private UnitScriptableObject unitScriptableObject;
     private void Awake() {
         animator = GetComponent<Animator>();
@@ -30,7 +31,7 @@ public class UnitMovement : MonoBehaviour
     }
 
     public void Move(bool isAttacking) {
-        if (unitScriptableObject == null || isAttacking && Vector3.Distance(transform.position, targetPosition) < unitScriptableObject.range) {
+        if (unitScriptableObject == null || isAttacking && Vector3.Distance(transform.position, targetPosition) < unitScriptableObject.range - randomTolerance) {
             return;
         }
         // Move the player to the position over time
@@ -41,6 +42,6 @@ public class UnitMovement : MonoBehaviour
 
     public void SetTargetPosition(Vector3 position) {
         // Set the target position with random offset
-        targetPosition = position + new Vector3(Random.Range(-0.25f, 0.25f), Random.Range(-0.25f, 0.25f));
+        targetPosition = position + new Vector3(Random.Range(-randomTolerance/2, randomTolerance/2), Random.Range(-randomTolerance/2, randomTolerance/2));
     }
 }
