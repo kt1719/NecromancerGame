@@ -7,7 +7,7 @@ We're developing a Rogue Lite Game with Simple Management mechanism, around the 
 
 ### Overview
 
-Genre: Lite Strategy&Management
+Genre: Lite Strategy & Management
 
 ### Target audience:
 

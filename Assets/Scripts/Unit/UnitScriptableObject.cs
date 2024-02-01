@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.VisualScripting;
+#if UNITY_EDITOR
 using UnityEditor;
-using UnityEditor.VersionControl;
+#endif
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Unit", menuName = "ScriptableObjects/Unit")]
@@ -19,8 +18,10 @@ public class UnitScriptableObject : ScriptableObject
     public Sprite pointerSprite;
 
     private void OnEnable() {
+        #if UNITY_EDITOR
         if (pointerSprite == null) {
             pointerSprite = (Sprite)AssetDatabase.LoadAssetAtPath<Sprite>("Assets/PixelArt/UI/placeholder_pointer.png").ConvertTo(typeof(Sprite));
         }
+        #endif
     }
 }

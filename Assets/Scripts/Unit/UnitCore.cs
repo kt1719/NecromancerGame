@@ -47,7 +47,6 @@ public class UnitCore : MonoBehaviour
     }
 
     public void CommandUnitsAttack(EnemyCore enemyCore) {
-        if (attacking) return;
         attacking = true;
         unitMovement.SetTargetPosition(enemyCore.gameObject.transform.position);
         unitCombat.AttackEnemy(enemyCore);

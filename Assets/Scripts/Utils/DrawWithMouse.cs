@@ -128,6 +128,8 @@ public class DrawWithMouse : MonoBehaviour
         PolygonCollider2D poly = CreatePolyCollider();
         if (poly == null) return;
         SelectObjects(poly);
+        // Destroy the polygon collider
+        Destroy(poly);
     }
 
     private void SelectObjects(PolygonCollider2D poly)

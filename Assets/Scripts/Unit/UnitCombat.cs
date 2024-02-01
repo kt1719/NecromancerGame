@@ -7,15 +7,18 @@ public class UnitCombat : MonoBehaviour
     private EnemyCore enemyCore;
     private UnitScriptableObject unitScriptableObject;
 
+    public void SetScriptableObject(UnitScriptableObject unitScriptableObject) {
+        this.unitScriptableObject = unitScriptableObject;
+    }
+
     public void AttackEnemy(EnemyCore enemyCore)
     {
+        if (enemyCore == this.enemyCore) return; // Same enemy -> Do nothing
+        // Cancel previous invoke if there are any
+        CancelInvoke("DamageEnemy");
         this.enemyCore = enemyCore;
         // Call DamageEnemy function every 1 second
         InvokeRepeating("DamageEnemy", 0, 1/unitScriptableObject.attackSpeed);
-    }
-
-    public void SetScriptableObject(UnitScriptableObject unitScriptableObject) {
-        this.unitScriptableObject = unitScriptableObject;
     }
 
     private void DamageEnemy()
@@ -40,5 +43,6 @@ public class UnitCombat : MonoBehaviour
     public void CancelUnitsAttack()
     {
         enemyCore = null;
+        CancelInvoke("DamageEnemy");
     }
 }
