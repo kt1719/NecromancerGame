@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04a8bd5bd497e6d4d9c2602aaf62223c, type: 3}
   m_Name: SummoningTower
   m_EditorClassIdentifier: 
-  towerName: Tower
-  towerCost: 10
-  towerDamage: 20
-  towerRange: 50
+  towerName: Summon
+  towerDescription: DefaultDescription
+  isUnlocked: 0
   towerSprite: {fileID: 21300000, guid: bcaf2f2b4004a474a8ad29304e729220, type: 3}
