@@ -95,13 +95,9 @@ public class TabMenuTowers : MonoBehaviour
         placingTower = false;
         // Create gameobject with towerObject's sprite
         GameObject tower = new GameObject();
-        tower.AddComponent<SpriteRenderer>();
-        tower.GetComponent<SpriteRenderer>().sprite = currentScriptableObject.towerSprite;
-        tower.GetComponent<SpriteRenderer>().sortingOrder = 1;
-        // Create a tower script
-        Tower towerScript = tower.AddComponent<Tower>();
-        // Set the tower's scriptable object
-        towerScript.towerScriptableObject = towerNameToScriptableObject[currentScriptableObject.towerName];
+        // Create a Tower Core script
+        TowerCore towerScript = tower.AddComponent<TowerCore>();
+        towerScript.InstantiateTower(currentScriptableObject);
         // Set the tower's position to mousePosition
         tower.transform.position = towerObject.transform.position;
         StopTowerPlace();
