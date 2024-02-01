@@ -79,7 +79,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 3, y: 5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -97,5 +97,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 343bc4a1a87d39e4f8fb6ceda9f9db6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerScriptableObject: {fileID: 11400000, guid: f46ca64674621504e8f8c153522ce496,
-    type: 2}
