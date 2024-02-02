@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: testMaterial
+  m_Name: pixelOutline
   m_Shader: {fileID: -6465566751694194690, guid: 10388a74166a7a244916087b74e5ad1b,
     type: 3}
   m_Parent: {fileID: 0}
@@ -58,13 +58,14 @@ Material:
     - CORNERS: 1
     - CORNERS_ON: 0
     - _EnableExternalAlpha: 0
+    - _EnablePixelOutline: 0
     - _OutlineThickness: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _OutlineColor: {r: 1, g: 1, b: 1, a: 0}
+    - _OutlineColor: {r: 1, g: 0.9764151, b: 0.9764151, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &1257584337040684825

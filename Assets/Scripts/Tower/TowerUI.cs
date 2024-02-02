@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class TowerUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
+    TowerScriptableObject towerScriptableObject;
+
+    private void Awake() {
         
     }
 
@@ -14,5 +14,9 @@ public class TowerUI : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void SetScriptableObject(TowerScriptableObject towerScriptableObject) {
+        this.towerScriptableObject = towerScriptableObject;
     }
 }

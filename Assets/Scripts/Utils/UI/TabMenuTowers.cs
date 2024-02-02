@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,25 +8,19 @@ public class TabMenuTowers : MonoBehaviour
     /// <summary>
     /// ScriptableObject references    
     /// </summary>
-    public TowerScriptableObject cannonScriptableObject;
-    public TowerScriptableObject summoningTowerScriptableObject;
-
-    // current scriptable object
-    private TowerScriptableObject currentScriptableObject;
-
+    public GameObject towerPrefab;
+    public GameObject summoningTowerPrefab;
+    private string currentScriptableObjectName;
     /// <summary>
     /// Variables Used for Tower Placement
     /// </summary>
-    public bool placingTower = false;
+    private bool placingTower = false;
+    private bool towerCanBePlaced = true;
     private GameObject towerObject; // Used as a way to show the tower before it is placed
     private GameObject tileObject; // Used as a way to show the tile to be placed on
-
-    // Define mapping from string to TowerScriptableObject
-    Dictionary<string, TowerScriptableObject> towerNameToScriptableObject = new Dictionary<string, TowerScriptableObject>();
     void Awake()
     {
         InitializeTile();
-        SetUpMapping();
     }
     // Update is called once per frame
     void Update()
@@ -44,13 +39,15 @@ public class TabMenuTowers : MonoBehaviour
             mousePosition.y = Mathf.Round(mousePosition.y) + (mousePosition.y - Mathf.Round(mousePosition.y) > 0 ? 0.5f : -0.5f);
             towerObject.transform.position = mousePosition;
             tileObject.transform.position = mousePosition;
+            // Check if there is a tower already placed on the tile
+            if(TowerManager.TileHasTower(mousePosition)) {
+                tileObject.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 0.5f); // Make the tile transparent red
+                towerCanBePlaced = false;
+            } else {
+                tileObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f); // Make the tile transparent white
+                towerCanBePlaced = true;
+            }
         }
-    }
-    private void SetUpMapping()
-    {
-        // Change this to file later on
-        towerNameToScriptableObject.Add("Tower", cannonScriptableObject);
-        towerNameToScriptableObject.Add("Summoning_Tower", summoningTowerScriptableObject);
     }
     private void InitializeTile()
     {
@@ -77,33 +74,36 @@ public class TabMenuTowers : MonoBehaviour
         towerObject.name = "TowerPrePlace";
     }
     // Function called when we want to place down a tower
-    public void TowerPrePlace(string towerString) {
+    public bool TowerPrePlace(string towerString) {
+        currentScriptableObjectName = towerString;
         // Get the TowerScriptableObject from the mapping
-        TowerScriptableObject towerScriptableObject = towerNameToScriptableObject[towerString];
-        currentScriptableObject = towerScriptableObject;
+        GameObject towerPrefab = TowerManager.towerMappings[towerString];
+        TowerScriptableObject towerScriptableObject = towerPrefab.GetComponent<TowerCore>().towerScriptableObjectReference;
+        if (!TowerManager.towerUnlockMappings[towerString]) {
+            Debug.Log("Tower is not unlocked");
+            return false;
+        }
         // Set placingTower to true
         placingTower = true;
         // Create a tower sprite to follow the mouse
         towerObject.GetComponent<SpriteRenderer>().sprite = towerScriptableObject.towerSprite;
         towerObject.GetComponent<SpriteRenderer>().enabled = true;
         tileObject.GetComponent<SpriteRenderer>().enabled = true;
+        return true; // Return true if we can successfully place the tower
     }
     public void PlaceTower() {
-        if (!placingTower) {
+        if (!placingTower || !towerCanBePlaced) {
             return;
         }
-        placingTower = false;
-        // Create gameobject with towerObject's sprite
-        GameObject tower = new GameObject();
-        // Create a Tower Core script
-        TowerCore towerScript = tower.AddComponent<TowerCore>();
-        towerScript.InstantiateTower(currentScriptableObject);
+        // Instantiate the tower Prefab
+        GameObject tower = Instantiate(TowerManager.towerMappings[currentScriptableObjectName]);
         // Set the tower's position to mousePosition
         tower.transform.position = towerObject.transform.position;
+        // Add the tower's position to the hashset
+        TowerManager.AddTowerPosition(tower.transform.position);
         StopTowerPlace();
     }
     public void StopTowerPlace() {
-        // Set placingTower to false
         placingTower = false;
         towerObject.GetComponent<SpriteRenderer>().sprite = null;
         towerObject.GetComponent<SpriteRenderer>().enabled = false;

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerName: Summon
   towerDescription: DefaultDescription
-  isUnlocked: 0
+  isUnlocked: 1
   towerSprite: {fileID: 21300000, guid: bcaf2f2b4004a474a8ad29304e729220, type: 3}

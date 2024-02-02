@@ -8,6 +8,5 @@ public class TowerScriptableObject : ScriptableObject
     // Scriptable Object for Tower
     public string towerName = "Tower";
     public string towerDescription = "DefaultDescription";
-    public bool isUnlocked = false;
     public Sprite towerSprite;
 }

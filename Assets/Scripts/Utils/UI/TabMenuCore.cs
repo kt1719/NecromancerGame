@@ -52,12 +52,14 @@ public class TabMenuCore : MonoBehaviour
 
     public void PrePlaceTowerCore(string towerName)
     {
-        // If we are not already placing a tower
-        if (!tabMenuTowers.placingTower)
-        {
-            // Place the tower
-            tabMenuTowers.TowerPrePlace(towerName);
+        // Place the tower
+        if (tabMenuTowers.TowerPrePlace(towerName)) {
             ChangeWindowVisiblity();
+            // Send a message to the player that the tower is being placed
+        }
+        else {
+            // Send a message to the player that the tower cannot be placed
+            Debug.Log("Tower can't be placed");
         }
     }
 }
