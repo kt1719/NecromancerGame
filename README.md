@@ -37,11 +37,11 @@ Neverwinter Days is a role-playing game set in a historical fantasy version of
 
 ## Our team
 
-Dev: [@Khayle](torreskhayle@gmail.com)
+Dev: [@Khayle](mailto:torreskhayle@gmail.com)
 
-Design: [@Khayle](torreskhayle@gmail.com) & [@PixelRomi](dess.rob.ro@gmail.com)
+Design: [@Khayle](mailto:torreskhayle@gmail.com) & [@PixelRomi](mailto:dess.rob.ro@gmail.com)
 
-Art: [@PixelRomi](dess.rob.ro@gmail.com)
+Art: [@PixelRomi](mailto:dess.rob.ro@gmail.com)
 
 ### QA: 
 
