@@ -1,0 +1,16 @@
+{
+    "name": "PlayerTests",
+    "rootNamespace": "",
+    "references": [
+        "GUID:5915e350f613a68438ee145d475d49a9"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

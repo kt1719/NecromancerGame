@@ -1,24 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
+using GameDefinitions;
 using UnityEngine;
 
-public class PlayerCore : MonoBehaviour
-{
-    // public PlayerScriptableObject playerScriptableObjectReference;
-    // private PlayerScriptableObject playerScriptableObject;
-    PlayerMovement playerMovement;
-    public float speed = 5f;
-    void Awake()
+namespace Player{
+    public class PlayerCore : MonoBehaviour
     {
-        // unitMovement = GetComponent<UnitMovement>();
-        // unitCombat = GetComponent<UnitCombat>();
-        // unitScriptableObject = Instantiate(unitScriptableObjectReference);
-        // unitMovement.SetScriptableObject(unitScriptableObject);
-        // unitCombat.SetScriptableObject(unitScriptableObject);
-        playerMovement = GetComponent<PlayerMovement>();
-    }
+        // public PlayerScriptableObject playerScriptableObjectReference;
+        // private PlayerScriptableObject playerScriptableObject;
+        PlayerMovement playerMovement;
+        public float speed = 5f;
+        private Direction direction = Direction.None;
+        void Awake()
+        {
+            // unitMovement = GetComponent<UnitMovement>();
+            // unitCombat = GetComponent<UnitCombat>();
+            // unitScriptableObject = Instantiate(unitScriptableObjectReference);
+            // unitMovement.SetScriptableObject(unitScriptableObject);
+            // unitCombat.SetScriptableObject(unitScriptableObject);
+            playerMovement = GetComponent<PlayerMovement>();
+        }
 
-    private void FixedUpdate() {
-        playerMovement.Move(speed);
+        private void Update() {
+            GetInputs();
+        }
+
+        private void FixedUpdate() {
+            playerMovement.Move(direction, speed);
+        }
+
+        private void GetInputs() {
+            direction = new Direction(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        }
     }
 }

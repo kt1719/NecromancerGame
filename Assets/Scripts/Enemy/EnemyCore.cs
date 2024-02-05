@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 public class EnemyCore : MonoBehaviour
 {
     CapsuleCollider2D capsuleCollider2D;
