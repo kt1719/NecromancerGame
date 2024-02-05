@@ -19,9 +19,9 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Console
+  m_Title: Project
   m_RootView: {fileID: 4}
-  m_MinSize: {x: 875, y: 321}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -39,12 +39,12 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1053
+    x: 937
     y: 0
-    width: 526
-    height: 548
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+    width: 642
+    height: 557
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -70,11 +70,11 @@ MonoBehaviour:
     x: 0
     y: 0
     width: 1579
-    height: 548
+    height: 557
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 686
+  controlID: 30
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -97,7 +97,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 989
-  m_MinSize: {x: 875, y: 321}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
   m_TopViewHeight: 30
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 684
+  controlID: 89
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 685
+  controlID: 90
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -213,10 +213,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1053
-    height: 548
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+    width: 937
+    height: 557
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -224,7 +224,7 @@ MonoBehaviour:
   - {fileID: 14}
   - {fileID: 16}
   m_Selected: 0
-  m_LastSelected: 1
+  m_LastSelected: 2
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -243,13 +243,13 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 548
+    y: 557
     width: 1579
-    height: 391
+    height: 382
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 24
+  controlID: 91
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -267,10 +267,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 941
-    height: 391
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+    width: 858
+    height: 382
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 19}
@@ -294,10 +294,10 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 941
+    x: 858
     y: 0
-    width: 638
-    height: 391
+    width: 721
+    height: 382
   m_MinSize: {x: 232, y: 271}
   m_MaxSize: {x: 10002, y: 10021}
   m_ActualView: {fileID: 23}
@@ -324,8 +324,8 @@ MonoBehaviour:
     y: 0
     width: 341
     height: 939
-  m_MinSize: {x: 276, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 24}
   m_Panes:
   - {fileID: 24}
@@ -353,8 +353,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 1578
-    height: 527
+    width: 683
+    height: 659
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -366,12 +366,12 @@ MonoBehaviour:
     m_SaveData: []
     m_OverlaysVisible: 1
   m_Spl:
-    ID: 159
+    ID: 773
     splitterInitialOffset: 0
     currentActiveSplitter: -1
     realSizes:
-    - 343
-    - 114
+    - 442
+    - 147
     relativeSizes:
     - 0.75
     - 0.25
@@ -381,7 +381,7 @@ MonoBehaviour:
     maxSizes:
     - 0
     - 0
-    lastTotalSize: 457
+    lastTotalSize: 589
     splitSize: 6
     xOffset: 0
     m_Version: 1
@@ -450,7 +450,7 @@ MonoBehaviour:
       name: Wilderness Odyssey
       fullName: Wilderness Odyssey
       resultStatus: 1
-      duration: 0.0524595
+      duration: 0.1166195
       messages: 
       output: 
       stacktrace: 
@@ -461,12 +461,12 @@ MonoBehaviour:
       categories: []
       parentId: 
       parentUniqueId: 
-    - id: 1004
+    - id: 1010
       uniqueId: '[Tests.dll][suite]'
       name: Tests.dll
       fullName: C:/Unity/2D/2024/NecromancerGame/Library/ScriptAssemblies/Tests.dll
-      resultStatus: 0
-      duration: 0
+      resultStatus: 1
+      duration: 0.101689
       messages: 
       output: 
       stacktrace: 
@@ -481,8 +481,8 @@ MonoBehaviour:
       uniqueId: Tests.dll/[Tests][suite]
       name: Tests
       fullName: Tests
-      resultStatus: 0
-      duration: 0
+      resultStatus: 1
+      duration: 0.1013803
       messages: 
       output: 
       stacktrace: 
@@ -493,12 +493,12 @@ MonoBehaviour:
       categories: []
       parentId: 1004
       parentUniqueId: '[Tests.dll][suite]'
-    - id: 1001
-      uniqueId: Tests.dll/Tests/[Tests][Tests.Movement][suite]
-      name: Movement
-      fullName: Tests.Movement
-      resultStatus: 0
-      duration: 0
+    - id: 1004
+      uniqueId: Tests.dll/Tests/[Tests][Tests.PlayerTest][suite]
+      name: PlayerTest
+      fullName: Tests.PlayerTest
+      resultStatus: 1
+      duration: 0.0975086
       messages: 
       output: 
       stacktrace: 
@@ -507,14 +507,14 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentId: 1005
+      parentId: 1007
       parentUniqueId: Tests.dll/[Tests][suite]
-    - id: 1003
-      uniqueId: Tests.dll/Tests/Movement/[Tests][Tests.Movement.MovementWithEnumeratorPasses]
-      name: MovementWithEnumeratorPasses
-      fullName: Tests.Movement.MovementWithEnumeratorPasses
-      resultStatus: 0
-      duration: 0
+    - id: 1006
+      uniqueId: Tests.dll/Tests/PlayerTest/[Tests][Tests.PlayerTest.PlayerMovementDown]
+      name: PlayerMovementDown
+      fullName: Tests.PlayerTest.PlayerMovementDown
+      resultStatus: 1
+      duration: 0.0138185
       messages: 
       output: 
       stacktrace: 
@@ -524,15 +524,134 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentId: 1001
-      parentUniqueId: Tests.dll/Tests/[Tests][Tests.Movement][suite]
-    m_ResultText: 
+      parentId: 1004
+      parentUniqueId: Tests.dll/Tests/[Tests][Tests.PlayerTest][suite]
+    - id: 1011
+      uniqueId: Tests.dll/Tests/PlayerTest/[Tests][Tests.PlayerTest.PlayerMovementDownLeft]
+      name: PlayerMovementDownLeft
+      fullName: Tests.PlayerTest.PlayerMovementDownLeft
+      resultStatus: 1
+      duration: 0.005896
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1004
+      parentUniqueId: Tests.dll/Tests/[Tests][Tests.PlayerTest][suite]
+    - id: 1012
+      uniqueId: Tests.dll/Tests/PlayerTest/[Tests][Tests.PlayerTest.PlayerMovementDownRight]
+      name: PlayerMovementDownRight
+      fullName: Tests.PlayerTest.PlayerMovementDownRight
+      resultStatus: 1
+      duration: 0.0166379
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1004
+      parentUniqueId: Tests.dll/Tests/[Tests][Tests.PlayerTest][suite]
+    - id: 1007
+      uniqueId: Tests.dll/Tests/PlayerTest/[Tests][Tests.PlayerTest.PlayerMovementLeft]
+      name: PlayerMovementLeft
+      fullName: Tests.PlayerTest.PlayerMovementLeft
+      resultStatus: 1
+      duration: 0.0080708
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1004
+      parentUniqueId: Tests.dll/Tests/[Tests][Tests.PlayerTest][suite]
+    - id: 1008
+      uniqueId: Tests.dll/Tests/PlayerTest/[Tests][Tests.PlayerTest.PlayerMovementRight]
+      name: PlayerMovementRight
+      fullName: Tests.PlayerTest.PlayerMovementRight
+      resultStatus: 1
+      duration: 0.0090414
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1004
+      parentUniqueId: Tests.dll/Tests/[Tests][Tests.PlayerTest][suite]
+    - id: 1005
+      uniqueId: Tests.dll/Tests/PlayerTest/[Tests][Tests.PlayerTest.PlayerMovementUp]
+      name: PlayerMovementUp
+      fullName: Tests.PlayerTest.PlayerMovementUp
+      resultStatus: 1
+      duration: 0.0086923
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1004
+      parentUniqueId: Tests.dll/Tests/[Tests][Tests.PlayerTest][suite]
+    - id: 1009
+      uniqueId: Tests.dll/Tests/PlayerTest/[Tests][Tests.PlayerTest.PlayerMovementUpLeft]
+      name: PlayerMovementUpLeft
+      fullName: Tests.PlayerTest.PlayerMovementUpLeft
+      resultStatus: 1
+      duration: 0.0151538
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1004
+      parentUniqueId: Tests.dll/Tests/[Tests][Tests.PlayerTest][suite]
+    - id: 1010
+      uniqueId: Tests.dll/Tests/PlayerTest/[Tests][Tests.PlayerTest.PlayerMovementUpRight]
+      name: PlayerMovementUpRight
+      fullName: Tests.PlayerTest.PlayerMovementUpRight
+      resultStatus: 1
+      duration: 0.0077282
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1004
+      parentUniqueId: Tests.dll/Tests/[Tests][Tests.PlayerTest][suite]
+    m_ResultText: PlayerTest (0.098s)
     m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 8359db41
-      m_LastClickedID: 1104894339
-      m_ExpandedIDs: 825dee9de557abf73ade8005a6d9b624ffffff7f
+      m_SelectedIDs: fd4c0deb
+      m_LastClickedID: -351449859
+      m_ExpandedIDs: 825dee9dfd4c0debe557abf73ade8005a6d9b62422524b3a8359db41cb25af6effffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1137,8 +1256,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 1578
-    height: 527
+    width: 683
+    height: 659
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -2968,8 +3087,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 1052
-    height: 527
+    width: 936
+    height: 536
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -3328,9 +3447,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -3.1619973, y: 1.7998807, z: -0.17897706}
+    m_Target: {x: 0.87180406, y: -2.1232772, z: 0.5374772}
     speed: 2
-    m_Value: {x: -2.8516986, y: 1.6416284, z: -0.17586789}
+    m_Value: {x: 0.87180406, y: -2.1232772, z: 0.5374772}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -3380,9 +3499,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 7.2202353
+    m_Target: 3.2807117
     speed: 2
-    m_Value: 6.909316
+    m_Value: 3.2807117
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -3428,10 +3547,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1053
+    x: 937
     y: 73
-    width: 524
-    height: 527
+    width: 640
+    height: 536
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -3486,10 +3605,10 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 524
-      height: 506
-    m_Scale: {x: 0.27291667, y: 0.27291667}
-    m_Translation: {x: 262, y: 253}
+      width: 640
+      height: 515
+    m_Scale: {x: 0.33333334, y: 0.33333334}
+    m_Translation: {x: 320, y: 257.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
@@ -3497,12 +3616,12 @@ MonoBehaviour:
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
       x: -960
-      y: -927.0229
+      y: -772.5
       width: 1920
-      height: 1854.0458
+      height: 1545
     m_MinimalGUI: 1
-  m_defaultScale: 0.27291667
-  m_LastWindowPixelSize: {x: 524, y: 527}
+  m_defaultScale: 0.33333334
+  m_LastWindowPixelSize: {x: 640, y: 536}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -3529,10 +3648,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 586
-    y: 624
-    width: 268
-    height: 366
+    x: 0
+    y: 753
+    width: 805
+    height: 238
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -3546,9 +3665,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 8e740000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 14fbffff
+      m_ExpandedIDs: 0e6cedff5276edffce76edffd079edff6a86edffe088edffa88cedff168fedff8491edffca93edffd494edff1897edff5c99edffac9bedfff09dedff34a0edff6ca2edffb0a4edffe8a6edff56aaedffdcacedffe4adedff86cfffffa8cfffffa4d0ffffded7ffff02d9ffffeafaffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -3594,9 +3713,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 621
-    width: 940
-    height: 370
+    y: 630
+    width: 857
+    height: 361
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -3644,7 +3763,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -110234
+  m_LastSelectedObjectID: 30930
 --- !u!114 &22
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -3756,10 +3875,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 941
-    y: 621
-    width: 636
-    height: 370
+    x: 858
+    y: 630
+    width: 719
+    height: 361
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -3781,7 +3900,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/PixelArt/Units
+    - Assets/PixelArt/Tiled
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -3789,16 +3908,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/PixelArt/Units
+  - Assets/PixelArt/Tiled
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Unity\2D\2024\NecromancerGame
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 5e740000
-    m_LastClickedID: 29790
-    m_ExpandedIDs: 0000000030720000327200003472000036720000387200003a7200003c7200003e720000b6730000be73000000ca9a3b
+    m_SelectedIDs: 28a30000
+    m_LastClickedID: 41768
+    m_ExpandedIDs: 000000003c7200003e72000040720000427200004472000046720000487200004a720000d0730000e6a20000eea2000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -3826,7 +3945,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000030720000327200003472000036720000387200003a7200003c7200003e720000
+    m_ExpandedIDs: 000000003c7200003e72000040720000427200004472000046720000487200004a720000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -3870,7 +3989,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 9}
+      m_ClientGUIView: {fileID: 12}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -3881,7 +4000,7 @@ MonoBehaviour:
     m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
-  m_DirectoriesAreaWidth: 50
+  m_DirectoriesAreaWidth: 373
 --- !u!114 &24
 MonoBehaviour:
   m_ObjectHideFlags: 52
