@@ -20,12 +20,14 @@ public class TabMenuCore : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            ChangeWindowVisiblity();
+            tabMenuTowers.StopTowerPlace();
+            ChangeWindowVisiblity(!tabMenu.activeSelf);
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             tabMenuTowers.StopTowerPlace();
+            ChangeWindowVisiblity(false);
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -34,27 +36,16 @@ public class TabMenuCore : MonoBehaviour
         }
     }
 
-    private void ChangeWindowVisiblity()
+    private void ChangeWindowVisiblity(bool val)
     {
-        // If the gameobject is active
-        if (tabMenu.activeSelf)
-        {
-            // Deactivate the gameobject
-            tabMenu.SetActive(false);
-        }
-        // If the gameobject is inactive
-        else
-        {
-            // Activate the gameobject
-            tabMenu.SetActive(true);
-        }
+        tabMenu.SetActive(val);
     }
 
     public void PrePlaceTowerCore(string towerName)
     {
         // Place the tower
         if (tabMenuTowers.TowerPrePlace(towerName)) {
-            ChangeWindowVisiblity();
+            ChangeWindowVisiblity(!tabMenu.activeSelf);
             // Send a message to the player that the tower is being placed
         }
         else {
