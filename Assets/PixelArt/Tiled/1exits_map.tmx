@@ -3,6 +3,9 @@
  <editorsettings>
   <export target="1exits_map..tmj" format="json"/>
  </editorsettings>
+ <properties>
+  <property name="paths_allowed" value="tfff"/>
+ </properties>
  <tileset firstgid="1" source="Tilesets/ground.tsx"/>
  <tileset firstgid="121" source="Tilesets/top.tsx"/>
  <tileset firstgid="223" source="Tilesets/cliff.tsx"/>
