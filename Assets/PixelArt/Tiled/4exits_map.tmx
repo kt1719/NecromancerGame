@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="1">
  <properties>
-  <property name="entrance" value="true"/>
+  <property name="max_quantity" type="int" value="2"/>
   <property name="paths_allowed" value="tttt"/>
  </properties>
  <tileset firstgid="1" source="Tilesets/ground.tsx"/>
