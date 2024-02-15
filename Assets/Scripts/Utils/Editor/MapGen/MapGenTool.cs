@@ -1,10 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
-using SuperTiled2Unity;
-using System;
-using System.Linq;
-using SuperTiled2Unity.Editor.ClipperLib;
+
 // ASSUMES ALL THE CELLS ARE THE SAME SIZE!!!!!!!!!!!!!
 namespace GameTools {
     public class MapGenTool : EditorWindow {

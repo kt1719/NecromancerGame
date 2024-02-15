@@ -1,42 +1,17 @@
 using System;
 using System.Collections.Generic;
+using Codice.Client.BaseCommands;
 using Codice.Client.Common.GameUI;
 using UnityEditor;
 using UnityEngine;
 
 namespace GameTools {
     public class MazeGen : EditorWindow {
-        class MazeCell {
-            public bool top = false;
-            public bool right = false;
-            public bool bottom = false;
-            public bool left = false;
-            public void UpdateCoord(Vector2 src, Vector2 dest) {
-                if (src.x == dest.x) {
-                    if (src.y < dest.y) {
-                        top = true;
-                    } else if (src.y > dest.y) {
-                        bottom = true;
-                    }
-                } else if (src.y == dest.y) {
-                    if (src.x < dest.x) {
-                        right = true;
-                    } else if (src.x > dest.x) {
-                        left = true;
-                    }
-                }
-            }
-
-            public MazeCell() {}
-        }
-
-        private enum MazeAlgorithm {
-            Kruskal,
-            test
-        }
         public Vector2 dimensions = new Vector2(10, 10);
-        private float lineThickness = 0.05f;
         MazeAlgorithm algorithm = MazeAlgorithm.Kruskal;
+        MapMetaData mapMetaData;
+        uint mazeId = 0;
+
 
         [MenuItem("NecromancerGame/Map/MazeGen")]
         private static void ShowWindow() {
@@ -45,13 +20,24 @@ namespace GameTools {
 
         private void OnGUI() {
 
-            lineThickness = EditorGUILayout.Slider("Line Thickness", lineThickness, 0.01f, 0.1f);
             GUILayout.Label("MazeGen", EditorStyles.boldLabel);
             dimensions = EditorGUILayout.Vector2Field("Dimensions", dimensions);
             algorithm = (MazeAlgorithm)EditorGUILayout.EnumPopup("Algorithm", algorithm);
+            mazeId = (uint)EditorGUILayout.IntField("MazeId", (int)mazeId);
 
             if (GUILayout.Button("Generate")) {
                 GenerateMaze(dimensions);
+            }
+
+            mapMetaData = EditorGUILayout.ObjectField("MapMetaData", mapMetaData, typeof(MapMetaData), false) as MapMetaData;
+
+            if (GUILayout.Button("Show Maze")) {
+                if (mapMetaData != null) {
+                    MazeCell[,] maze = mapMetaData.ReturnMaze();
+                    List<((uint, uint), (uint, uint))> minimumSpanningTree = mapMetaData.ReturnMinimumSpanningTree();
+                    VisualiseMaze(maze);
+                    VisaliseMazePath(minimumSpanningTree);
+                }
             }
         }
 
@@ -87,9 +73,70 @@ namespace GameTools {
                 maze[(int)cell2.x, (int)cell2.y].UpdateCoord(cell2, cell1);
             }
 
-            // Visualisation of the maze
-            VisualiseMazeEdge(minimumSpanningTree);
-            VisualiseMaze(maze);
+            // // Visualisation of the maze
+            // VisualiseMazeEdge(minimumSpanningTree);
+            // VisualiseMaze(maze);
+            
+            // Create a GameObject for the maze
+            GenerateMazeObject(maze);
+            // Export the list of Maze cells to scriptable object
+            MapMetaData mapMetaData = ScriptableObject.CreateInstance<MapMetaData>();
+            mapMetaData.SetMaze(maze, dimensions, minimumSpanningTree);
+            AssetDatabase.CreateAsset(mapMetaData, "Assets/GameAssets/Maps/ScriptableObjects/MapMetaData_"+ mazeId++ + ".asset");
+        }
+
+        private GameObject GenerateMazeObject(MazeCell[,] maze)
+        {
+            // Create a GameObject for the maze
+            GameObject mazeObject = new GameObject("Maze");
+            GameObject visualMaze = new GameObject("VisualMaze");
+            visualMaze.transform.parent = mazeObject.transform;
+
+            for (int i = 0; i < dimensions.x; i++)
+            {
+                for (int j = 0; j < dimensions.y; j++)
+                {
+                    GameObject cellObject = new GameObject("Cell");
+                    cellObject.transform.parent = visualMaze.transform;
+                    // Loop through the maze and draw a line renderer for each wall
+                    MazeCell cell = maze[i, j];
+                    Vector2 cellPos = new Vector2(i * 10, j * 10);
+                    if (!cell.top)
+                    {
+                        GameObject wallTop = new GameObject("WallTop");
+                        wallTop.transform.parent = cellObject.transform;
+                        LineRenderer lineRenderer = wallTop.AddComponent<LineRenderer>();
+                        lineRenderer.SetPosition(0, new Vector2(cellPos.x - 5, cellPos.y + 5));
+                        lineRenderer.SetPosition(1, new Vector2(cellPos.x + 5, cellPos.y + 5));
+                    }
+                    if (!cell.right)
+                    {
+                        GameObject wallRight = new GameObject("WallRight");
+                        wallRight.transform.parent = cellObject.transform;
+                        LineRenderer lineRenderer = wallRight.AddComponent<LineRenderer>();
+                        lineRenderer.SetPosition(0, new Vector2(cellPos.x + 5, cellPos.y - 5));
+                        lineRenderer.SetPosition(1, new Vector2(cellPos.x + 5, cellPos.y + 5));
+                    }
+                    if (!cell.bottom)
+                    {
+                        GameObject wallBottom = new GameObject("WallBottom");
+                        wallBottom.transform.parent = cellObject.transform;
+                        LineRenderer lineRenderer = wallBottom.AddComponent<LineRenderer>();
+                        lineRenderer.SetPosition(0, new Vector2(cellPos.x - 5, cellPos.y - 5));
+                        lineRenderer.SetPosition(1, new Vector2(cellPos.x + 5, cellPos.y - 5));
+                    }
+                    if (!cell.left)
+                    {
+                        GameObject wallLeft = new GameObject("WallLeft");
+                        wallLeft.transform.parent = cellObject.transform;
+                        LineRenderer lineRenderer = wallLeft.AddComponent<LineRenderer>();
+                        lineRenderer.SetPosition(0, new Vector2(cellPos.x - 5, cellPos.y - 5));
+                        lineRenderer.SetPosition(1, new Vector2(cellPos.x - 5, cellPos.y + 5));
+                    }
+                }
+            }
+
+            return mazeObject;
         }
 
         private void VisualiseMaze(MazeCell[,] maze)
@@ -120,12 +167,13 @@ namespace GameTools {
             {
                 for (int j = 0; j < dimensions.y; j++)
                 {
+                    Debug.Log("Drawing cell: " + i + ", " + j + " with maze cell: " + maze[i, j]);
                     DrawCell(new Vector2(i, j), maze[i, j]);
                 }
             }
         }
 
-        private void VisualiseMazeEdge(List<((uint, uint), (uint, uint))> minimumSpanningTree)
+        private void VisaliseMazePath(List<((uint, uint), (uint, uint))> minimumSpanningTree)
         {
             // Draw the maze
             foreach (var edge in minimumSpanningTree)
@@ -139,4 +187,33 @@ namespace GameTools {
             }
         }
     }
+    [Serializable]
+    public class MazeCell {
+        public bool top = false;
+        public bool right = false;
+        public bool bottom = false;
+        public bool left = false;
+
+        public void UpdateCoord(Vector2 src, Vector2 dest) {
+            if (src.x == dest.x) {
+                if (src.y < dest.y) {
+                    top = true;
+                } else if (src.y > dest.y) {
+                    bottom = true;
+                }
+            } else if (src.y == dest.y) {
+                if (src.x < dest.x) {
+                    right = true;
+                } else if (src.x > dest.x) {
+                    left = true;
+                }
+            }
+        }
+
+            public MazeCell() {}
+        }
+        public enum MazeAlgorithm {
+            Kruskal,
+            test
+        }
 }
