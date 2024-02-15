@@ -11,6 +11,7 @@ namespace GameTools {
         public bool bottom;
         public bool left;
     }
+
     [Serializable] struct MinimumSpanningTreeNode
     {
         public Vector2Int src;
@@ -72,7 +73,7 @@ namespace GameTools {
             }
             return maze;
         }
-
+        
         public List<((uint, uint), (uint, uint))> ReturnMinimumSpanningTree()
         {
             List<((uint, uint), (uint, uint))> minimumSpanningTree = new List<((uint, uint), (uint, uint))>();
@@ -82,6 +83,11 @@ namespace GameTools {
                 minimumSpanningTree.Add(edge);
             }
             return minimumSpanningTree;
+        }
+
+        public Vector2 ReturnDimensions()
+        {
+            return dimensions;
         }
     }
 }

@@ -11,6 +11,7 @@ namespace GameTools {
         MazeAlgorithm algorithm = MazeAlgorithm.Kruskal;
         MapMetaData mapMetaData;
         uint mazeId = 0;
+        uint seconds = 10;
 
 
         [MenuItem("NecromancerGame/Map/MazeGen")]
@@ -24,6 +25,7 @@ namespace GameTools {
             dimensions = EditorGUILayout.Vector2Field("Dimensions", dimensions);
             algorithm = (MazeAlgorithm)EditorGUILayout.EnumPopup("Algorithm", algorithm);
             mazeId = (uint)EditorGUILayout.IntField("MazeId", (int)mazeId);
+            seconds = (uint)EditorGUILayout.IntField("Visualisation Time (s)", (int)seconds);
 
             if (GUILayout.Button("Generate")) {
                 GenerateMaze(dimensions);
@@ -35,8 +37,9 @@ namespace GameTools {
                 if (mapMetaData != null) {
                     MazeCell[,] maze = mapMetaData.ReturnMaze();
                     List<((uint, uint), (uint, uint))> minimumSpanningTree = mapMetaData.ReturnMinimumSpanningTree();
-                    VisualiseMaze(maze);
-                    VisaliseMazePath(minimumSpanningTree);
+                    Vector2 mazeDim = mapMetaData.ReturnDimensions();
+                    VisualiseMaze(maze, mazeDim);
+                    VisaliseMazePath(minimumSpanningTree, mazeDim);
                 }
             }
         }
@@ -139,11 +142,11 @@ namespace GameTools {
             return mazeObject;
         }
 
-        private void VisualiseMaze(MazeCell[,] maze)
+        private void VisualiseMaze(MazeCell[,] maze, Vector2 dimensions)
         {
             void DrawLine(Vector2 start, Vector2 end, Color color)
             {
-                Debug.DrawLine(start, end, color, 40f);
+                Debug.DrawLine(start, end, color, seconds);
             }
 
             void DrawCell(Vector2 coordinatePosition, MazeCell cell) {
@@ -167,13 +170,12 @@ namespace GameTools {
             {
                 for (int j = 0; j < dimensions.y; j++)
                 {
-                    Debug.Log("Drawing cell: " + i + ", " + j + " with maze cell: " + maze[i, j]);
                     DrawCell(new Vector2(i, j), maze[i, j]);
                 }
             }
         }
 
-        private void VisaliseMazePath(List<((uint, uint), (uint, uint))> minimumSpanningTree)
+        private void VisaliseMazePath(List<((uint, uint), (uint, uint))> minimumSpanningTree, Vector2 dimensions)
         {
             // Draw the maze
             foreach (var edge in minimumSpanningTree)
@@ -183,7 +185,7 @@ namespace GameTools {
                 Vector2 cell2 = new Vector2(edge.Item2.Item1, edge.Item2.Item2);
                 Vector2 cell1Pos = new Vector2(cell1.x * 10, cell1.y * 10);
                 Vector2 cell2Pos = new Vector2(cell2.x * 10, cell2.y * 10);
-                Debug.DrawLine(cell1Pos, cell2Pos, Color.red, 40f);
+                Debug.DrawLine(cell1Pos, cell2Pos, Color.red, seconds);
             }
         }
     }
