@@ -30,12 +30,21 @@
  </tile>
  <tile id="9">
   <image width="16" height="16" source="../../PlaceholderTileset/Objects/tile056.png"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="0" y="9" width="16" height="7"/>
+  </objectgroup>
  </tile>
  <tile id="10">
   <image width="80" height="96" source="../../PlaceholderTileset/Objects/tree.png"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="16" y="80" width="48" height="16"/>
+  </objectgroup>
  </tile>
  <tile id="11">
   <image width="48" height="80" source="../../PlaceholderTileset/Objects/tree2.png"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="16" y="64" width="16" height="16"/>
+  </objectgroup>
  </tile>
  <tile id="12">
   <image width="16" height="16" source="../../PlaceholderTileset/Objects/tile057.png"/>

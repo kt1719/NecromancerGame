@@ -2,6 +2,7 @@ using System.ComponentModel;
 using SuperTiled2Unity;
 using SuperTiled2Unity.Editor;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 public class CustomImporter : CustomTmxImporter
 {
     public override void TmxAssetImported(TmxAssetImportedArgs args)
@@ -13,7 +14,10 @@ public class CustomImporter : CustomTmxImporter
         // Loop through the GameObjects layer and log their names
         foreach (var layer in layers)
         {
-            Debug.LogFormat("Layer '{0}' has been imported.", layer.m_TiledName);
+            if (layer.m_TiledName == "wall_layer") {
+                Debug.LogFormat("Wall layer '{0}' has been imported.", layer.m_TiledName);
+                layer.gameObject.AddComponent<TilemapCollider2D>();
+            }
         }
     }
 }
