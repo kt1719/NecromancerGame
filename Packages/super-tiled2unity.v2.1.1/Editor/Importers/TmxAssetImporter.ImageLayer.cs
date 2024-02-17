@@ -41,6 +41,7 @@ namespace SuperTiled2Unity.Editor
                         var renderer = goLayer.AddComponent<SpriteRenderer>();
                         renderer.sprite = sprite;
                         renderer.color = layerComponent.CalculateColor();
+                        renderer.spriteSortPoint = SpriteSortPoint.Pivot;
                         AssignMaterial(renderer, layerComponent.m_TiledName);
                         AssignSpriteSorting(renderer);
                     }
