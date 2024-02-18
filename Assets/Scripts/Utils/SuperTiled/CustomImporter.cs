@@ -1,10 +1,15 @@
 using System.ComponentModel;
+using System.ComponentModel.Design;
+using System.Reflection;
 using SuperTiled2Unity;
 using SuperTiled2Unity.Editor;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.Tilemaps;
 public class CustomImporter : CustomTmxImporter
 {
+    private static BindingFlags accessFlagsPrivate = BindingFlags.NonPublic | BindingFlags.Instance;
+    private static FieldInfo shapePathField = typeof(ShadowCaster2D).GetField("m_ShapePath", accessFlagsPrivate);
     public override void TmxAssetImported(TmxAssetImportedArgs args)
     {
         // Just log the name of the map
@@ -14,9 +19,52 @@ public class CustomImporter : CustomTmxImporter
         // Loop through the GameObjects layer and log their names
         foreach (var layer in layers)
         {
-            if (layer.m_TiledName == "wall_layer") {
-                Debug.LogFormat("Wall layer '{0}' has been imported.", layer.m_TiledName);
-                layer.gameObject.AddComponent<TilemapCollider2D>();
+            Debug.LogFormat("Wall layer '{0}' has been imported.", layer.m_TiledName);
+            GameObject gameObject = layer.gameObject;
+            if (layer.m_TiledName == "GameObjects") {
+                // Check for super custom properties on the GameObject
+                SuperCustomProperties[] superCustomProperties = layer.GetComponentsInChildren<SuperCustomProperties>();
+                foreach (var superCustomProperty in superCustomProperties)
+                {
+                    Debug.Log("superCustomProperties: " + superCustomProperty.name);
+                    CustomProperty customProperty;
+                    if (superCustomProperty.TryGetCustomProperty("shadow", out customProperty))
+                    {
+                        bool shadow = customProperty.GetValueAsBool();
+                        if (shadow) {
+                            Debug.LogFormat("Shadow: {0} ", shadow);
+                            Debug.LogFormat("Shadow: {0}", superCustomProperty.gameObject.name);
+                            // Loop until we find the deepest child
+                            GameObject child = superCustomProperty.gameObject;
+                            while (!child.GetComponent<SpriteRenderer>()) {
+                                child = child.transform.GetChild(0).gameObject;
+                            }
+                            ShadowCaster2D shadowCaster = child.AddComponent<ShadowCaster2D>();
+                            CompositeShadowCaster2D compositeShadowCaster2D = child.AddComponent<CompositeShadowCaster2D>();
+
+                            // Get the collider in the layer below 
+                            child = child.transform.GetChild(0).gameObject;
+                            if (child.GetComponent<BoxCollider2D>()) {
+                                // We need to update m_ShapePath to be the same as the points in the box
+                                BoxCollider2D boxCollider2D = child.GetComponent<BoxCollider2D>();
+                                Vector3[] points = new Vector3[4];
+                                float x = boxCollider2D.size.x;
+                                float y = boxCollider2D.size.y;
+                                float startingX = child.transform.localPosition.x;
+                                float startingY = child.transform.localPosition.y;
+                                points[0] = new Vector3(startingX, startingY, 0);
+                                points[1] = new Vector3(x + startingX, startingY, 0);
+                                points[2] = new Vector3(x + startingX, - y + startingY, 0);
+                                points[3] = new Vector3(startingX, - y + startingY, 0);
+                                shapePathField.SetValue(shadowCaster, points);
+                            }
+                            if (child.GetComponent<TilemapCollider2D>()) {
+                            }
+                            if (child.GetComponent<PolygonCollider2D>()) {
+                            }
+                        }
+                    }
+                }
             }
         }
     }
