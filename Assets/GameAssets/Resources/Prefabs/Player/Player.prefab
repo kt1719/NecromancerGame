@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8492150585790536101}
   - component: {fileID: 2148865493550348240}
   - component: {fileID: 5596298583352280194}
+  - component: {fileID: 4491247957093311709}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -36,7 +37,7 @@ Transform:
   m_Children:
   - {fileID: 6855709060591875314}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8359258888722109446
 SpriteRenderer:
@@ -207,7 +208,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a3e78bce1167e247a61a8d4cfa2430e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerScriptableObjectReference: {fileID: 11400000, guid: 25ca665bfbbe78d419c952ac90d5167d,
+    type: 2}
   speed: 5
+--- !u!114 &4491247957093311709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6105357030187765539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e8f14afd3a13c34eb7251dcaf613098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3268715239686010697
 PrefabInstance:
   m_ObjectHideFlags: 0

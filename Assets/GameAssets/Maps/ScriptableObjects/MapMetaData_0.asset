@@ -13,10 +13,74 @@ MonoBehaviour:
   m_Name: MapMetaData_0
   m_EditorClassIdentifier: 
   mazeCells:
+  - top: 0
+    right: 1
+    bottom: 0
+    left: 0
   - top: 1
     right: 1
     bottom: 0
     left: 0
+  - top: 1
+    right: 1
+    bottom: 1
+    left: 0
+  - top: 1
+    right: 0
+    bottom: 1
+    left: 0
+  - top: 0
+    right: 1
+    bottom: 1
+    left: 0
+  - top: 0
+    right: 1
+    bottom: 0
+    left: 1
+  - top: 0
+    right: 1
+    bottom: 0
+    left: 1
+  - top: 0
+    right: 0
+    bottom: 0
+    left: 1
+  - top: 0
+    right: 1
+    bottom: 0
+    left: 0
+  - top: 0
+    right: 1
+    bottom: 0
+    left: 1
+  - top: 0
+    right: 1
+    bottom: 0
+    left: 1
+  - top: 0
+    right: 1
+    bottom: 0
+    left: 1
+  - top: 1
+    right: 0
+    bottom: 0
+    left: 0
+  - top: 1
+    right: 0
+    bottom: 1
+    left: 1
+  - top: 0
+    right: 0
+    bottom: 1
+    left: 1
+  - top: 0
+    right: 1
+    bottom: 0
+    left: 1
+  - top: 1
+    right: 1
+    bottom: 0
+    left: 1
   - top: 0
     right: 1
     bottom: 1
@@ -26,45 +90,21 @@ MonoBehaviour:
     bottom: 0
     left: 0
   - top: 0
-    right: 1
-    bottom: 1
-    left: 0
-  - top: 0
     right: 0
-    bottom: 0
-    left: 1
-  - top: 0
-    right: 1
-    bottom: 0
-    left: 1
-  - top: 0
-    right: 1
-    bottom: 0
-    left: 1
-  - top: 0
-    right: 0
-    bottom: 0
-    left: 1
-  - top: 1
-    right: 0
-    bottom: 0
-    left: 0
-  - top: 0
-    right: 1
-    bottom: 1
-    left: 1
-  - top: 1
-    right: 1
-    bottom: 0
-    left: 1
-  - top: 0
-    right: 1
     bottom: 1
     left: 0
   - top: 1
     right: 0
     bottom: 0
-    left: 0
+    left: 1
+  - top: 0
+    right: 0
+    bottom: 1
+    left: 1
+  - top: 1
+    right: 0
+    bottom: 0
+    left: 1
   - top: 1
     right: 0
     bottom: 1
@@ -72,40 +112,54 @@ MonoBehaviour:
   - top: 0
     right: 0
     bottom: 1
-    left: 1
-  - top: 0
-    right: 0
-    bottom: 0
-    left: 1
+    left: 0
   minimumSpanningTreeNodes:
-  - src: {x: 0, y: 2}
-    dest: {x: 1, y: 2}
-  - src: {x: 2, y: 2}
+  - src: {x: 4, y: 3}
+    dest: {x: 4, y: 4}
+  - src: {x: 1, y: 3}
     dest: {x: 2, y: 3}
-  - src: {x: 2, y: 1}
-    dest: {x: 3, y: 1}
-  - src: {x: 0, y: 0}
-    dest: {x: 0, y: 1}
-  - src: {x: 0, y: 3}
-    dest: {x: 1, y: 3}
-  - src: {x: 0, y: 2}
-    dest: {x: 0, y: 3}
-  - src: {x: 3, y: 1}
-    dest: {x: 3, y: 2}
-  - src: {x: 2, y: 3}
-    dest: {x: 3, y: 3}
-  - src: {x: 2, y: 0}
-    dest: {x: 2, y: 1}
-  - src: {x: 3, y: 0}
-    dest: {x: 3, y: 1}
   - src: {x: 0, y: 1}
     dest: {x: 1, y: 1}
-  - src: {x: 2, y: 2}
+  - src: {x: 4, y: 2}
+    dest: {x: 4, y: 3}
+  - src: {x: 0, y: 2}
+    dest: {x: 1, y: 2}
+  - src: {x: 0, y: 3}
+    dest: {x: 0, y: 4}
+  - src: {x: 2, y: 0}
+    dest: {x: 3, y: 0}
+  - src: {x: 1, y: 4}
+    dest: {x: 2, y: 4}
+  - src: {x: 3, y: 1}
     dest: {x: 3, y: 2}
+  - src: {x: 3, y: 2}
+    dest: {x: 4, y: 2}
+  - src: {x: 3, y: 0}
+    dest: {x: 4, y: 0}
+  - src: {x: 2, y: 3}
+    dest: {x: 2, y: 4}
+  - src: {x: 3, y: 1}
+    dest: {x: 4, y: 1}
+  - src: {x: 0, y: 4}
+    dest: {x: 1, y: 4}
+  - src: {x: 2, y: 2}
+    dest: {x: 2, y: 3}
   - src: {x: 1, y: 1}
     dest: {x: 2, y: 1}
-  - src: {x: 1, y: 2}
-    dest: {x: 2, y: 2}
+  - src: {x: 0, y: 1}
+    dest: {x: 0, y: 2}
   - src: {x: 0, y: 0}
     dest: {x: 1, y: 0}
-  dimensions: {x: 4, y: 4}
+  - src: {x: 0, y: 2}
+    dest: {x: 0, y: 3}
+  - src: {x: 2, y: 1}
+    dest: {x: 3, y: 1}
+  - src: {x: 1, y: 0}
+    dest: {x: 2, y: 0}
+  - src: {x: 4, y: 0}
+    dest: {x: 4, y: 1}
+  - src: {x: 3, y: 3}
+    dest: {x: 4, y: 3}
+  - src: {x: 3, y: 3}
+    dest: {x: 3, y: 4}
+  dimensions: {x: 5, y: 5}
