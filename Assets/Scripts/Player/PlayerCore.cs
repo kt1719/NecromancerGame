@@ -7,6 +7,7 @@ namespace Player{
         // public PlayerScriptableObject playerScriptableObjectReference;
         // private PlayerScriptableObject playerScriptableObject;
         PlayerMovement playerMovement;
+        PlayerAbilities playerAbilities;
         PlayerCamera playerCamera;
         public float speed = 5f;
         private Direction direction = Direction.None;
@@ -19,6 +20,7 @@ namespace Player{
             // unitCombat.SetScriptableObject(unitScriptableObject);
             playerMovement = GetComponent<PlayerMovement>();
             playerCamera = this.transform.GetChild(0).GetComponent<PlayerCamera>();
+            playerAbilities = GetComponent<PlayerAbilities>();
         }
 
         private void Update() {

@@ -17,37 +17,13 @@ MonoBehaviour:
     right: 1
     bottom: 0
     left: 0
-  - top: 1
-    right: 0
-    bottom: 1
-    left: 0
-  - top: 1
-    right: 1
-    bottom: 1
-    left: 0
-  - top: 1
-    right: 1
-    bottom: 1
-    left: 0
   - top: 0
-    right: 0
+    right: 1
     bottom: 1
     left: 0
   - top: 1
     right: 1
     bottom: 0
-    left: 0
-  - top: 0
-    right: 0
-    bottom: 1
-    left: 0
-  - top: 1
-    right: 0
-    bottom: 0
-    left: 0
-  - top: 1
-    right: 1
-    bottom: 1
     left: 0
   - top: 0
     right: 1
@@ -59,278 +35,6 @@ MonoBehaviour:
     left: 1
   - top: 0
     right: 1
-    bottom: 0
-    left: 0
-  - top: 0
-    right: 1
-    bottom: 0
-    left: 1
-  - top: 1
-    right: 0
-    bottom: 0
-    left: 1
-  - top: 0
-    right: 1
-    bottom: 1
-    left: 0
-  - top: 1
-    right: 1
-    bottom: 0
-    left: 1
-  - top: 1
-    right: 0
-    bottom: 1
-    left: 0
-  - top: 1
-    right: 1
-    bottom: 1
-    left: 0
-  - top: 0
-    right: 0
-    bottom: 1
-    left: 1
-  - top: 0
-    right: 1
-    bottom: 0
-    left: 1
-  - top: 1
-    right: 0
-    bottom: 0
-    left: 0
-  - top: 1
-    right: 0
-    bottom: 1
-    left: 1
-  - top: 0
-    right: 0
-    bottom: 1
-    left: 1
-  - top: 1
-    right: 0
-    bottom: 0
-    left: 0
-  - top: 1
-    right: 1
-    bottom: 1
-    left: 1
-  - top: 0
-    right: 1
-    bottom: 1
-    left: 1
-  - top: 1
-    right: 0
-    bottom: 0
-    left: 0
-  - top: 0
-    right: 0
-    bottom: 1
-    left: 1
-  - top: 0
-    right: 1
-    bottom: 0
-    left: 0
-  - top: 0
-    right: 0
-    bottom: 0
-    left: 1
-  - top: 1
-    right: 1
-    bottom: 0
-    left: 0
-  - top: 1
-    right: 0
-    bottom: 1
-    left: 0
-  - top: 1
-    right: 0
-    bottom: 1
-    left: 0
-  - top: 1
-    right: 1
-    bottom: 1
-    left: 0
-  - top: 0
-    right: 0
-    bottom: 1
-    left: 1
-  - top: 1
-    right: 0
-    bottom: 0
-    left: 1
-  - top: 0
-    right: 1
-    bottom: 1
-    left: 0
-  - top: 0
-    right: 1
-    bottom: 0
-    left: 0
-  - top: 1
-    right: 1
-    bottom: 0
-    left: 1
-  - top: 0
-    right: 1
-    bottom: 1
-    left: 0
-  - top: 1
-    right: 1
-    bottom: 0
-    left: 1
-  - top: 0
-    right: 0
-    bottom: 1
-    left: 0
-  - top: 1
-    right: 0
-    bottom: 0
-    left: 0
-  - top: 1
-    right: 0
-    bottom: 1
-    left: 1
-  - top: 0
-    right: 1
-    bottom: 1
-    left: 0
-  - top: 0
-    right: 1
-    bottom: 0
-    left: 0
-  - top: 1
-    right: 1
-    bottom: 0
-    left: 1
-  - top: 1
-    right: 1
-    bottom: 1
-    left: 1
-  - top: 0
-    right: 1
-    bottom: 1
-    left: 1
-  - top: 0
-    right: 0
-    bottom: 0
-    left: 1
-  - top: 0
-    right: 0
-    bottom: 0
-    left: 1
-  - top: 1
-    right: 1
-    bottom: 0
-    left: 0
-  - top: 1
-    right: 0
-    bottom: 1
-    left: 0
-  - top: 0
-    right: 0
-    bottom: 1
-    left: 0
-  - top: 0
-    right: 0
-    bottom: 0
-    left: 1
-  - top: 1
-    right: 0
-    bottom: 0
-    left: 1
-  - top: 0
-    right: 0
-    bottom: 1
-    left: 1
-  - top: 0
-    right: 1
-    bottom: 0
-    left: 1
-  - top: 1
-    right: 0
-    bottom: 0
-    left: 1
-  - top: 0
-    right: 0
-    bottom: 1
-    left: 0
-  - top: 1
-    right: 1
-    bottom: 0
-    left: 0
-  - top: 0
-    right: 0
-    bottom: 1
-    left: 1
-  - top: 0
-    right: 1
-    bottom: 0
-    left: 0
-  - top: 1
-    right: 1
-    bottom: 0
-    left: 0
-  - top: 1
-    right: 0
-    bottom: 1
-    left: 0
-  - top: 1
-    right: 1
-    bottom: 1
-    left: 0
-  - top: 0
-    right: 1
-    bottom: 1
-    left: 0
-  - top: 1
-    right: 1
-    bottom: 0
-    left: 1
-  - top: 1
-    right: 1
-    bottom: 1
-    left: 0
-  - top: 0
-    right: 1
-    bottom: 1
-    left: 0
-  - top: 1
-    right: 1
-    bottom: 0
-    left: 1
-  - top: 1
-    right: 1
-    bottom: 1
-    left: 0
-  - top: 0
-    right: 1
-    bottom: 1
-    left: 1
-  - top: 1
-    right: 1
-    bottom: 0
-    left: 1
-  - top: 0
-    right: 1
-    bottom: 1
-    left: 0
-  - top: 0
-    right: 1
-    bottom: 0
-    left: 1
-  - top: 1
-    right: 1
-    bottom: 0
-    left: 1
-  - top: 0
-    right: 0
-    bottom: 1
-    left: 1
-  - top: 0
-    right: 0
-    bottom: 0
-    left: 1
-  - top: 0
-    right: 0
     bottom: 0
     left: 1
   - top: 0
@@ -344,63 +48,19 @@ MonoBehaviour:
   - top: 1
     right: 0
     bottom: 0
-    left: 1
-  - top: 0
-    right: 0
-    bottom: 1
-    left: 1
+    left: 0
   - top: 0
     right: 1
-    bottom: 0
-    left: 1
-  - top: 0
-    right: 0
-    bottom: 0
+    bottom: 1
     left: 1
   - top: 1
     right: 1
     bottom: 0
     left: 1
-  - top: 1
-    right: 0
-    bottom: 1
-    left: 0
-  - top: 1
+  - top: 0
     right: 1
     bottom: 1
     left: 0
-  - top: 0
-    right: 0
-    bottom: 1
-    left: 0
-  - top: 1
-    right: 0
-    bottom: 0
-    left: 1
-  - top: 1
-    right: 0
-    bottom: 1
-    left: 0
-  - top: 1
-    right: 0
-    bottom: 1
-    left: 0
-  - top: 0
-    right: 0
-    bottom: 1
-    left: 0
-  - top: 1
-    right: 0
-    bottom: 0
-    left: 1
-  - top: 0
-    right: 0
-    bottom: 1
-    left: 0
-  - top: 0
-    right: 0
-    bottom: 0
-    left: 1
   - top: 1
     right: 0
     bottom: 0
@@ -412,204 +72,40 @@ MonoBehaviour:
   - top: 0
     right: 0
     bottom: 1
-    left: 0
+    left: 1
+  - top: 0
+    right: 0
+    bottom: 0
+    left: 1
   minimumSpanningTreeNodes:
-  - src: {x: 7, y: 2}
-    dest: {x: 8, y: 2}
-  - src: {x: 5, y: 1}
-    dest: {x: 5, y: 2}
-  - src: {x: 8, y: 2}
-    dest: {x: 8, y: 3}
-  - src: {x: 2, y: 8}
-    dest: {x: 3, y: 8}
-  - src: {x: 3, y: 5}
-    dest: {x: 3, y: 6}
-  - src: {x: 6, y: 0}
-    dest: {x: 7, y: 0}
-  - src: {x: 2, y: 0}
-    dest: {x: 2, y: 1}
-  - src: {x: 6, y: 9}
-    dest: {x: 7, y: 9}
-  - src: {x: 7, y: 3}
-    dest: {x: 8, y: 3}
-  - src: {x: 9, y: 2}
-    dest: {x: 9, y: 3}
-  - src: {x: 8, y: 8}
-    dest: {x: 9, y: 8}
-  - src: {x: 1, y: 4}
-    dest: {x: 2, y: 4}
-  - src: {x: 3, y: 7}
-    dest: {x: 4, y: 7}
   - src: {x: 0, y: 2}
     dest: {x: 1, y: 2}
-  - src: {x: 2, y: 5}
-    dest: {x: 3, y: 5}
-  - src: {x: 4, y: 6}
-    dest: {x: 5, y: 6}
-  - src: {x: 7, y: 4}
-    dest: {x: 8, y: 4}
-  - src: {x: 6, y: 3}
-    dest: {x: 6, y: 4}
-  - src: {x: 0, y: 2}
-    dest: {x: 0, y: 3}
-  - src: {x: 8, y: 6}
-    dest: {x: 9, y: 6}
-  - src: {x: 7, y: 3}
-    dest: {x: 7, y: 4}
-  - src: {x: 6, y: 8}
-    dest: {x: 6, y: 9}
-  - src: {x: 8, y: 7}
-    dest: {x: 8, y: 8}
-  - src: {x: 9, y: 1}
-    dest: {x: 9, y: 2}
-  - src: {x: 3, y: 0}
-    dest: {x: 3, y: 1}
-  - src: {x: 2, y: 4}
-    dest: {x: 2, y: 5}
-  - src: {x: 4, y: 0}
-    dest: {x: 4, y: 1}
-  - src: {x: 8, y: 8}
-    dest: {x: 8, y: 9}
-  - src: {x: 3, y: 8}
-    dest: {x: 4, y: 8}
-  - src: {x: 3, y: 3}
-    dest: {x: 3, y: 4}
-  - src: {x: 4, y: 2}
-    dest: {x: 4, y: 3}
-  - src: {x: 3, y: 6}
-    dest: {x: 4, y: 6}
-  - src: {x: 2, y: 4}
-    dest: {x: 3, y: 4}
-  - src: {x: 4, y: 5}
-    dest: {x: 5, y: 5}
-  - src: {x: 9, y: 8}
-    dest: {x: 9, y: 9}
-  - src: {x: 6, y: 7}
-    dest: {x: 7, y: 7}
-  - src: {x: 9, y: 0}
-    dest: {x: 9, y: 1}
-  - src: {x: 7, y: 5}
-    dest: {x: 8, y: 5}
-  - src: {x: 0, y: 5}
-    dest: {x: 1, y: 5}
-  - src: {x: 7, y: 6}
-    dest: {x: 7, y: 7}
-  - src: {x: 1, y: 1}
-    dest: {x: 2, y: 1}
-  - src: {x: 7, y: 0}
-    dest: {x: 7, y: 1}
-  - src: {x: 6, y: 7}
-    dest: {x: 6, y: 8}
-  - src: {x: 6, y: 4}
-    dest: {x: 6, y: 5}
-  - src: {x: 1, y: 2}
-    dest: {x: 2, y: 2}
-  - src: {x: 4, y: 7}
-    dest: {x: 4, y: 8}
-  - src: {x: 1, y: 3}
-    dest: {x: 1, y: 4}
-  - src: {x: 2, y: 6}
-    dest: {x: 2, y: 7}
-  - src: {x: 3, y: 1}
-    dest: {x: 3, y: 2}
-  - src: {x: 6, y: 2}
-    dest: {x: 7, y: 2}
-  - src: {x: 7, y: 0}
-    dest: {x: 8, y: 0}
-  - src: {x: 5, y: 7}
-    dest: {x: 6, y: 7}
-  - src: {x: 4, y: 7}
-    dest: {x: 5, y: 7}
+  - src: {x: 2, y: 2}
+    dest: {x: 2, y: 3}
   - src: {x: 2, y: 1}
-    dest: {x: 2, y: 2}
-  - src: {x: 2, y: 3}
-    dest: {x: 2, y: 4}
-  - src: {x: 0, y: 7}
-    dest: {x: 0, y: 8}
-  - src: {x: 8, y: 6}
-    dest: {x: 8, y: 7}
-  - src: {x: 1, y: 5}
-    dest: {x: 2, y: 5}
-  - src: {x: 4, y: 4}
-    dest: {x: 5, y: 4}
-  - src: {x: 0, y: 9}
-    dest: {x: 1, y: 9}
-  - src: {x: 3, y: 8}
-    dest: {x: 3, y: 9}
-  - src: {x: 5, y: 8}
-    dest: {x: 5, y: 9}
-  - src: {x: 5, y: 2}
-    dest: {x: 5, y: 3}
-  - src: {x: 0, y: 3}
-    dest: {x: 1, y: 3}
-  - src: {x: 1, y: 6}
-    dest: {x: 1, y: 7}
-  - src: {x: 5, y: 1}
-    dest: {x: 6, y: 1}
-  - src: {x: 0, y: 3}
-    dest: {x: 0, y: 4}
-  - src: {x: 0, y: 5}
-    dest: {x: 0, y: 6}
-  - src: {x: 3, y: 2}
-    dest: {x: 3, y: 3}
-  - src: {x: 6, y: 6}
-    dest: {x: 7, y: 6}
-  - src: {x: 5, y: 5}
-    dest: {x: 5, y: 6}
-  - src: {x: 3, y: 9}
-    dest: {x: 4, y: 9}
-  - src: {x: 7, y: 6}
-    dest: {x: 8, y: 6}
-  - src: {x: 1, y: 7}
-    dest: {x: 1, y: 8}
-  - src: {x: 1, y: 5}
-    dest: {x: 1, y: 6}
-  - src: {x: 7, y: 1}
-    dest: {x: 7, y: 2}
-  - src: {x: 4, y: 6}
-    dest: {x: 4, y: 7}
-  - src: {x: 6, y: 3}
-    dest: {x: 7, y: 3}
-  - src: {x: 6, y: 8}
-    dest: {x: 7, y: 8}
-  - src: {x: 4, y: 8}
-    dest: {x: 5, y: 8}
-  - src: {x: 8, y: 0}
-    dest: {x: 9, y: 0}
-  - src: {x: 4, y: 0}
-    dest: {x: 5, y: 0}
-  - src: {x: 0, y: 0}
-    dest: {x: 1, y: 0}
-  - src: {x: 6, y: 0}
-    dest: {x: 6, y: 1}
-  - src: {x: 7, y: 1}
-    dest: {x: 8, y: 1}
-  - src: {x: 3, y: 3}
-    dest: {x: 4, y: 3}
-  - src: {x: 0, y: 8}
-    dest: {x: 1, y: 8}
-  - src: {x: 6, y: 5}
-    dest: {x: 6, y: 6}
-  - src: {x: 3, y: 0}
-    dest: {x: 4, y: 0}
-  - src: {x: 8, y: 4}
-    dest: {x: 9, y: 4}
-  - src: {x: 4, y: 3}
-    dest: {x: 4, y: 4}
+    dest: {x: 3, y: 1}
   - src: {x: 0, y: 0}
     dest: {x: 0, y: 1}
+  - src: {x: 0, y: 3}
+    dest: {x: 1, y: 3}
+  - src: {x: 0, y: 2}
+    dest: {x: 0, y: 3}
+  - src: {x: 3, y: 1}
+    dest: {x: 3, y: 2}
+  - src: {x: 2, y: 3}
+    dest: {x: 3, y: 3}
+  - src: {x: 2, y: 0}
+    dest: {x: 2, y: 1}
+  - src: {x: 3, y: 0}
+    dest: {x: 3, y: 1}
   - src: {x: 0, y: 1}
-    dest: {x: 0, y: 2}
-  - src: {x: 0, y: 8}
-    dest: {x: 0, y: 9}
-  - src: {x: 6, y: 5}
-    dest: {x: 7, y: 5}
-  - src: {x: 9, y: 4}
-    dest: {x: 9, y: 5}
-  - src: {x: 1, y: 9}
-    dest: {x: 2, y: 9}
-  - src: {x: 1, y: 7}
-    dest: {x: 2, y: 7}
-  - src: {x: 9, y: 7}
-    dest: {x: 9, y: 8}
-  dimensions: {x: 10, y: 10}
+    dest: {x: 1, y: 1}
+  - src: {x: 2, y: 2}
+    dest: {x: 3, y: 2}
+  - src: {x: 1, y: 1}
+    dest: {x: 2, y: 1}
+  - src: {x: 1, y: 2}
+    dest: {x: 2, y: 2}
+  - src: {x: 0, y: 0}
+    dest: {x: 1, y: 0}
+  dimensions: {x: 4, y: 4}
